@@ -32,8 +32,11 @@ var removeNullAndFalseElements = function(array) {
 }
 
 var reverseWordsInArray = function(array) {
-  return
-}
+  return array.map(reverseEachWord);
+ }
+  function reverseEachWord(element){
+    return element.split("").reverse().join("")
+  }
 
 var everyPossiblePair = function(array) {
   return 'Write your method here';
