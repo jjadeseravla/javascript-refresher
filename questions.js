@@ -39,16 +39,31 @@ var reverseWordsInArray = function(array) {
   }
 
 var everyPossiblePair = function(array) {
-  return 'Write your method here';
-}
+   return array.filter(everyPossiblePair);
+ }
+   function everyPossiblePair(element){
+ var result = []
+ // Since you only want pairs, there's no reason
+ // to iterate over the last element directly
+ for (var i = 0; i < array.length - 1; i++) {
+   // This is where you'll capture that last value
+   for (var j = i + 1; j < array.length; j++) {
+     result.push(array[i] + ' ' + array[j]);
+   }
+     return result
+  }
+
 
 var allElementsExceptFirstThree = function(array) {
-  return 'Write your method here';
+  return array.slice(3);
 }
 
+
 var addElementToBeginning = function(array, element) {
-  return 'Write your method here';
+   array.unshift(element);
+   return array
 }
+
 
 var sortByLastLetter = function(array) {
   return 'Write your method here';
