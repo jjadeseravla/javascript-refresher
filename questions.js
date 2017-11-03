@@ -39,20 +39,14 @@ var reverseWordsInArray = function(array) {
   }
 
 var everyPossiblePair = function(array) {
-   return array.filter(everyPossiblePair);
- }
-   function everyPossiblePair(element){
- var result = []
- // Since you only want pairs, there's no reason
- // to iterate over the last element directly
- for (var i = 0; i < array.length - 1; i++) {
-   // This is where you'll capture that last value
-   for (var j = i + 1; j < array.length; j++) {
-     result.push(array[i] + ' ' + array[j]);
-   }
-     return result
+  var result = []
+  for (var i = 0; i < array.length -1; i++) {
+    for (var j = i; j < array.length -1; j++) {
+      result.push([array[i], array[j+1]].sort());
+    }
   }
-
+  return result.sort()
+}
 
 var allElementsExceptFirstThree = function(array) {
   return array.slice(3);
@@ -66,11 +60,23 @@ var addElementToBeginning = function(array, element) {
 
 
 var sortByLastLetter = function(array) {
-  return 'Write your method here';
-}
+//   var what = array.map(function(x) {
+//     return x.split(" ").sort((a,b) => a.charCodeAt(a.length-1)-b.charCodeAt(b.length)-1);
+//   //return sortByLastLetter(sortByLastLetter(array).sort());
+// });
+//  }
+  // function sortByLastLetter(element){
+//     return element.split("").reverse().join("");
+//     return array.sort();
+ }
 
 var getFirstHalf = function(string) {
-  return 'Write your method here';
+  var number = string.replace(/[^a-zA-Z]/g, '').length
+  if (number % 2 === 0) {
+    return string.slice(0, number/2);
+  } else {
+    return string.slice(0, (number/2 +1));
+  }
 }
 
 var makeNegative = function(number) {
