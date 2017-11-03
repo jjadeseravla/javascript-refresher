@@ -80,7 +80,11 @@ var getFirstHalf = function(string) {
 }
 
 var makeNegative = function(number) {
-  return 'Write your method here';
+  if (number >= 0) {
+    return number * -1
+  } else {
+    return number
+  }
 }
 
 var numberOfPalindromes = function(array) {
