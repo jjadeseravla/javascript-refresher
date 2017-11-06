@@ -88,8 +88,12 @@ var makeNegative = function(number) {
 }
 
 var numberOfPalindromes = function(array) {
-  return 'Write your method here';
+  return array.filter(isPalindrome).length;
 }
+function isPalindrome(string) {
+  return string == string.split("").reverse().join(""); // or just return string == reverseString(string)
+}
+
 
 var shortestWord = function(array) {
   //var number = array.forEach(replace(/[^a-zA-Z]/g, '').length)
@@ -133,9 +137,10 @@ var getElementsUntilGreaterThanFive = function(array) {
    var results = [];
    for (var i = 0; i < array.length; i++) {
      if (array[i] <= 5) {
-       return results.push(array[i]);
+       results.push(array[i]);
      }
    }
+   return results
 }
 
 var convertArrayToObject = function(array) {
