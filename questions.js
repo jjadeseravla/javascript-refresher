@@ -92,31 +92,48 @@ var numberOfPalindromes = function(array) {
 }
 
 var shortestWord = function(array) {
-  return 'Write your method here';
+  //var number = array.forEach(replace(/[^a-zA-Z]/g, '').length)
+
 }
 
 var longestWord = function(array) {
-  return 'Write your method here';
+  var lgth = 0;
+  var longest;
+  for(var i=0; i < array.length; i++) {
+    if (array[i].length > lgth) {
+      var lgth = array[i].length;
+      longest = array[i];
+    }
+  }
 }
 
 var sumNumbers = function(array) {
-  return 'Write your method here';
+  return array.reduce(function(sum, value) {
+    return sum + value;
+  });
 }
 
 var repeatElements = function(array) {
-  return 'Write your method here';
+  return array.concat(array);
 }
 
 var stringToNumber = function(string) {
-  return 'Write your method here';
+  return Number(string);
 }
 
 var calculateAverage = function(array) {
-  return 'Write your method here';
+  return array.reduce(function(sum, value) {
+    return sum + value
+  });
 }
 
 var getElementsUntilGreaterThanFive = function(array) {
-  return 'Write your method here';
+   var results = [];
+   for (var i = 0; i < array.length; i++) {
+     if (array[i] <= 5) {
+       return results.push(array[i]);
+     }
+   }
 }
 
 var convertArrayToObject = function(array) {
@@ -136,7 +153,7 @@ var sumKeysAndValues = function(object) {
 }
 
 var removeCapitals = function(string) {
-  return 'Write your method here';
+  return string.replace( /[^a-z]/g," " );;
 }
 
 var roundUp = function(number) {
