@@ -122,9 +122,11 @@ var stringToNumber = function(string) {
 }
 
 var calculateAverage = function(array) {
-  return array.reduce(function(sum, value) {
-    return sum + value
-  });
+  var total = 0;
+  for(var i = 0; i < array.length; i++) {
+      total += array[i];
+  }
+  return total / array.length;
 }
 
 var getElementsUntilGreaterThanFive = function(array) {
