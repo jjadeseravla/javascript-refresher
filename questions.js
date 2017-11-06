@@ -60,6 +60,11 @@ var addElementToBeginning = function(array, element) {
 
 
 var sortByLastLetter = function(array) {
+   return array.filter(lastLetterSort).sort()
+ }
+function lastLetterSort(string) {
+  return string.split("").reverse().join("");
+}
 //   var what = array.map(function(x) {
 //     return x.split(" ").sort((a,b) => a.charCodeAt(a.length-1)-b.charCodeAt(b.length)-1);
 //   //return sortByLastLetter(sortByLastLetter(array).sort());
@@ -68,7 +73,6 @@ var sortByLastLetter = function(array) {
   // function sortByLastLetter(element){
 //     return element.split("").reverse().join("");
 //     return array.sort();
- }
 
 var getFirstHalf = function(string) {
   var number = string.replace(/[^a-zA-Z]/g, '').length
@@ -138,6 +142,8 @@ var getElementsUntilGreaterThanFive = function(array) {
    for (var i = 0; i < array.length; i++) {
      if (array[i] <= 5) {
        results.push(array[i]);
+     } else if (array[i] > 5) {
+       break; // exits the loop so it stops running
      }
    }
    return results
