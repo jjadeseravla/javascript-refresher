@@ -183,7 +183,11 @@ var getAllLetters = function(array) {
 
 
 var swapKeysAndValues = function(object) {
-  return 'Write your method here';
+  var hash = {};
+  for(var key in object) {
+    hash[object[key]] = key;
+  }
+  return hash;
 }
 
 
@@ -198,7 +202,7 @@ var removeCapitals = function(string) {
 
 
 var roundUp = function(number) {
-  return 'Write your method here';
+  return Math.ceil(number);
 }
 
 
@@ -218,7 +222,7 @@ var titleize = function(string) {
 
 
 var checkForSpecialCharacters = function(string) {
-  return 'Write your method here';
+  return !/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(string);;
 }
 
 
