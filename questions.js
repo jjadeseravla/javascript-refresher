@@ -241,14 +241,14 @@ var factorial = function(number) {
 //  return result;
 
 
-
 var findAnagrams = function(string) {
   return 'Write your method here';
 }
 
 
 var convertToCelsius = function(number) {
-  return 'Write your method here';
+  var num = ((number - 32) * 5/9);
+  return Math.ceil(num);
 }
 
 
