@@ -207,7 +207,7 @@ var roundUp = function(number) {
 
 
 var formatDateNicely = function(date) {
-  return 'Write your method here';
+  return date.toLocaleDateString();
 }
 
 
@@ -217,12 +217,18 @@ var getDomainName = function(string) {
 
 
 var titleize = function(string) {
-  return 'Write your method here';
+  var titleString =string.split(" ");
+    for (var i =0; i < titleString.length; i++) {
+      if (titleString[i] !== 'the' || 'and') {
+      titleString[i] = titleString[i].charAt(0).toUpperCase() + titleString[i].slice(1);
+    }
+  }
+      return titleString.join(" ");
 }
 
 
 var checkForSpecialCharacters = function(string) {
-  return !/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(string);;
+  return string.match(/\W/g) != null;
 }
 
 
