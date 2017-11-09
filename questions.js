@@ -212,7 +212,9 @@ var formatDateNicely = function(date) {
 
 
 var getDomainName = function(string) {
-  return 'Write your method here';
+  var noFront = string.slice(6);
+  var noBack = noFront.slice(0,-4);
+  return noBack;
 }
 
 
