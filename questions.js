@@ -105,14 +105,23 @@ function isPalindrome(string) {
 
 
 var shortestWord = function(array) {
-  var lgth = 0;
-  var shortest;
-  for (var i=0; i < array.length; i++) {
-    if (array[i].length < lgth) {
-      var lgth = array[i]
+  var shortest = array[0];
+
+  for(var i=0; i < array.length; i++) {
+    if (shortest.length > array[i].length) {
+      shortest = array[i];
     }
   }
+  return shortest
 }
+//   array.map(function(a, b) {
+//     if (a.length <= b.length) {
+//       return a;
+//     } else {
+//       return b;
+//     }
+//   })
+// }
   //var number = array.forEach(replace(/[^a-zA-Z]/g, '').length)
 
 
