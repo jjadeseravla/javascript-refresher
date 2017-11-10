@@ -178,7 +178,12 @@ return array.reduce(function(p, c) {
 
 
 var getAllLetters = function(array) {
-  return 'Write your method here';
+  var letters = [];
+  for ( var i=0; i < array.length; i++) {
+    array[i].split(" ");
+    letters.push(array[i]);
+  }
+  return letters;
 }
 
 
@@ -192,12 +197,23 @@ var swapKeysAndValues = function(object) {
 
 
 var sumKeysAndValues = function(object) {
-  return 'Write your method here';
+ var tuple = Object.entries(object);
+ return  tuple.reduce(function(a, b) {
+   return a.concat(b);
+ })
+
+ // function answer(arr)
+ // var numbers = arr.
+ //  return arr.reduce((sum, value) {
+ //    return sum + value;
+ //  }, 1);
 }
 
 
+
+
 var removeCapitals = function(string) {
-  return string.replace( /[^a-z]/g," " );;
+  return string.replace(/[A-Z]/g,'');
 }
 
 
