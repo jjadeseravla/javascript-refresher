@@ -114,29 +114,26 @@ var shortestWord = function(array) {
   }
   return shortest
 }
-//   array.map(function(a, b) {
-//     if (a.length <= b.length) {
-//       return a;
-//     } else {
-//       return b;
-//     }
-//   })
-// }
-  //var number = array.forEach(replace(/[^a-zA-Z]/g, '').length)
-
-
-
 
 var longestWord = function(array) {
-  var lgth = 0;
-  var longest;
+  var longest = array[0];
+
   for(var i=0; i < array.length; i++) {
-    if (array[i].length > lgth) {
-      var lgth = array[i].length;
+    if (longest.length < array[i].length) {
       longest = array[i];
     }
   }
+  return longest
 }
+//   var lgth = 0;
+//   var longest;
+//   for(var i=0; i < array.length; i++) {
+//     if (array[i].length > lgth) {
+//       var lgth = array[i].length;
+//       longest = array[i];
+//     }
+//   }
+// }
 
 
 var sumNumbers = function(array) {
