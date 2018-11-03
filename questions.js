@@ -1,46 +1,92 @@
+// var selectElementsStartingWithA = function(array) {
+// }
+//
+// var selectElementsStartingWithA = function(array) {
+//   return array.filter(function(item) {
+//    return (item[0] == 'a' || item[0] == 'A');
+//  });
+// }
 var selectElementsStartingWithA = function(array) {
+  aWords = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].slice(0,1).toLowerCase() == 'a') {
+      aWords.push(array[i]);
+    }
+  }
+  return aWords;
 }
 
-var selectElementsStartingWithA = function(array) {
-  return array.filter(function(item) {
-   return (item[0] == 'a' || item[0] == 'A');
- });
-}
 
-
+// var selectElementsStartingWithVowel = function(array) {
+//     return array.filter(startsWithVowel);
+//   }
+//   function startsWithVowel(array){
+//     var arrayVowels =['a','e','i','o','u'];
+//     return arrayVowels.some(function(vowel) { //some checks if any elements in an array pass a test
+//     return array.toLowerCase().slice(0,1) == vowel; //slice() method returns the selected elements in an array, as a new array object. 0 cos start from beginning and 1 duno
+//    }) ;
+// }
 var selectElementsStartingWithVowel = function(array) {
-    return array.filter(startsWithVowel);
+  vowelWords = [];
+    for (let i = 0; i < array.length; i++) {
+      var word = array[i].slice(0,1).toLowerCase();
+      if(word == 'o' || word == 'e' || word == 'u' || word == 'i'|| word == 'a' ) {
+        console.log(array[i].slice(0,1))
+        vowelWords.push(array[i]);
+      }
+    }
+    return vowelWords;
   }
-  function startsWithVowel(array){
-    var arrayVowels =['a','e','i','o','u'];
-    return arrayVowels.some(function(vowel) { //some checks if any elements in an array pass a test
-    return array.toLowerCase().slice(0,1) == vowel; //slice() method returns the selected elements in an array, as a new array object. 0 cos start from beginning and 1 duno
-   }) ;
-}
 
 
+// var removeNullElements = function(array) {
+//   return array.filter(notNull);
+// }
+//   function notNull(element){
+//       return element != null;
+//   }
 var removeNullElements = function(array) {
-  return array.filter(notNull);
-}
-  function notNull(element){
-      return element != null;
+  for (let i = 0; i < array.length; i++) {
+    if(array[i] == null) {
+      array.splice(i,1);
+      i--;
+    }
   }
+  return array;
+}
 
 
+// var removeNullAndFalseElements = function(array) {
+//   return array.filter(notNullOrFalse);
+// }
+//   function notNullOrFalse(element){
+//       return element !== null && element !== false;
+// }
 var removeNullAndFalseElements = function(array) {
-  return array.filter(notNullOrFalse);
-}
-  function notNullOrFalse(element){
-      return element !== null && element !== false;
-}
-
-
-var reverseWordsInArray = function(array) {
-  return array.map(reverseEachWord);
- }
-  function reverseEachWord(element){
-    return element.split("").reverse().join("")
+  for (let i = 0; i < array.length; i++) {
+    if(array[i] == null || array[i] === false) {
+      array.splice(i,1);
+      i--;
+    }
   }
+  return array;
+}
+
+
+// var reverseWordsInArray = function(array) {
+//   return array.map(reverseEachWord);
+//  }
+//   function reverseEachWord(element){
+//     return element.split("").reverse().join("")
+//   }
+var reverseWordsInArray = function(array) {
+  rev =[ ];
+  for (let i = 0; i < array.length; i++) {
+  rev.push(array[i].split('').reverse().join(''));
+
+  }
+  return rev;
+}
 
 
 var everyPossiblePair = function(array) {
@@ -54,36 +100,74 @@ var everyPossiblePair = function(array) {
 }
 
 
-var allElementsExceptFirstThree = function(array) {
-  return array.slice(3);
-}
-
-
-var addElementToBeginning = function(array, element) {
-   array.unshift(element);
-   return array
-}
-
-
-var sortByLastLetter = function(array) {
-  array.forEach(function(element) {
-    return element.split("").reverse().join("");
-  })
-}
-//    return array.filter(lastLetterSort).sort()
-//  }
-// function lastLetterSort(string) {
-//   var a = string.split("").reverse().join("");
+// var allElementsExceptFirstThree = function(array) {
+//   return array.slice(3);
 // }
+var allElementsExceptFirstThree = function(array) {
+  var rev = array.reverse();
+  var times = 3;
+    for(var i=0; i < times; i++){
+      rev.pop();
+    }
+    return rev.reverse();
+}
 
 
-var getFirstHalf = function(string) {
-  var number = string.replace(/[^a-zA-Z]/g, '').length
-  if (number % 2 === 0) {
-    return string.slice(0, number/2);
-  } else {
-    return string.slice(0, (number/2 +1));
+// var addElementToBeginning = function(array, element) {
+//    array.unshift(element);
+//    return array
+// }
+var addElementToBeginning = function(array, element) {
+  array.unshift(element);
+  return array;
+}
+
+
+// var sortByLastLetter = function(array) {
+//   array.forEach(function(element) {
+//     return element.split("").reverse().join("");
+//   })
+// }
+var sortByLastLetter = function(array) {
+  for (let i = 0; i < array.length; i++) {
+    var rev = array[i].split('').reverse().join('');
+    // var r = function(array) {
+    //   sortArr = [];
+    //   for (let i = 0; i < array.length; i++) {
+    //     sortArr.push(array[i].split('').reverse().join(''));
+
+    //   }
+    //   sortArr.sort(function(a,b) {
+    //     if(a > b)
+    //       return 1;
+    //     if(b > a)
+    //       return -1;
+    //     return 0;
+    //   });
+    //    sortArr.forEach(function(element) {
+    //      return element.split('').reverse().join('');
+    //    });
+    //    return sortArr
+    // }
   }
+}
+
+
+// var getFirstHalf = function(string) {
+//   var number = string.replace(/[^a-zA-Z]/g, '').length
+//   if (number % 2 === 0) {
+//     return string.slice(0, number/2);
+//   } else {
+//     return string.slice(0, (number/2 +1));
+//   }
+// }
+var getFirstHalf = function(string) {
+  var num = string.length;
+ if(num % 2 == 0){
+   return string.slice(0, (num / 2));
+ } else {
+   return string.slice(0, ((num/2)+0.5));
+ }
 }
 
 
