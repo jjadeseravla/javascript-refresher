@@ -188,42 +188,56 @@ function isPalindrome(string) {
 }
 
 
-var shortestWord = function(array) {
-  var shortest = array[0];
-
-  for(var i=0; i < array.length; i++) {
-    if (shortest.length > array[i].length) {
-      shortest = array[i];
-    }
-  }
-  return shortest
-}
-
-var longestWord = function(array) {
-  var longest = array[0];
-
-  for(var i=0; i < array.length; i++) {
-    if (longest.length < array[i].length) {
-      longest = array[i];
-    }
-  }
-  return longest
-}
-//   var lgth = 0;
-//   var longest;
+// var shortestWord = function(array) {
+//   var shortest = array[0];
+//
 //   for(var i=0; i < array.length; i++) {
-//     if (array[i].length > lgth) {
-//       var lgth = array[i].length;
+//     if (shortest.length > array[i].length) {
+//       shortest = array[i];
+//     }
+//   }
+//   return shortest
+// }
+var shortestWord = function(array) {
+  let shortest = array[0];
+     for(var i = 0; i < array.length; i++) {
+      if(shortest.length > array[i].length){
+      shortest = array[i];
+     }
+    };
+  return shortest;
+}
+
+// var longestWord = function(array) {
+//   var longest = array[0];
+//
+//   for(var i=0; i < array.length; i++) {
+//     if (longest.length < array[i].length) {
 //       longest = array[i];
 //     }
 //   }
+//   return longest
 // }
+var longestWord = function(array) {
+  let longest = array[0];
+  for(var i = 0; i < array.length; i++) {
+   if(longest.length < array[i].length){
+   longest = array[i];
+  }
+ };
+ return longest;
+}
 
 
+// var sumNumbers = function(array) {
+//   return array.reduce(function(sum, value) {
+//     return sum + value;
+//   });
+// }
 var sumNumbers = function(array) {
-  return array.reduce(function(sum, value) {
-    return sum + value;
-  });
+  return array.reduce(function(a, b) {
+    return a + b;
+  }, 0);
 }
 
 
@@ -232,30 +246,49 @@ var repeatElements = function(array) {
 }
 
 
+// var stringToNumber = function(string) {
+//   return Number(string);
+// }
 var stringToNumber = function(string) {
-  return Number(string);
+  return parseInt(string);
 }
 
 
+// var calculateAverage = function(array) {
+//   var total = 0;
+//   for(var i = 0; i < array.length; i++) {
+//       total += array[i];
+//   }
+//   return total / array.length;
+// }
 var calculateAverage = function(array) {
-  var total = 0;
-  for(var i = 0; i < array.length; i++) {
-      total += array[i];
-  }
-  return total / array.length;
+  return array.reduce(function(a, b){
+    return a + b;
+  }, 0)/array.length;
 }
 
 
+// var getElementsUntilGreaterThanFive = function(array) {
+//    var results = [];
+//    for (var i = 0; i < array.length; i++) {
+//      if (array[i] <= 5) {
+//        results.push(array[i]);
+//      } else if (array[i] > 5) {
+//        break; // exits the loop so it stops running
+//      }
+//    }
+//    return results
+// }
 var getElementsUntilGreaterThanFive = function(array) {
-   var results = [];
-   for (var i = 0; i < array.length; i++) {
-     if (array[i] <= 5) {
-       results.push(array[i]);
-     } else if (array[i] > 5) {
-       break; // exits the loop so it stops running
-     }
-   }
-   return results
+  small = [];
+    for(var i =0; i < array.length; i++) {
+      if(array[i] ==  6){
+        break;
+      } else {
+        small.push(array[i])
+      }
+    }
+  return small;
 }
 
 
@@ -286,21 +319,22 @@ var swapKeysAndValues = function(object) {
 }
 
 
-var sumKeysAndValues = function(object) {
- var tuple = Object.entries(object);
- return  tuple.reduce(function(a, b) {
-   return a.concat(b);
- })
-
- // function answer(arr)
- // var numbers = arr.
- //  return arr.reduce((sum, value) {
- //    return sum + value;
- //  }, 1);
+// var sumKeysAndValues = function(object) {
+//  var tuple = Object.entries(object);
+//  return  tuple.reduce(function(a, b) {
+//    return a.concat(b);
+//  })
+// }
+var sumKeysAndValues = function(obj) {
+  var keysArr =  Object.keys(obj).map(function(a){
+    return parseInt(a);
+  });
+  var valsArr = Object.values(obj);
+  var array =  keysArr.concat(valsArr);
+    return array.reduce(function(a, b){
+      return a + b;
+    },0);
 }
-
-
-
 
 var removeCapitals = function(string) {
   return string.replace(/[A-Z]/g,'');
@@ -317,10 +351,13 @@ var formatDateNicely = function(date) {
 }
 
 
+// var getDomainName = function(string) {
+//   var noFront = string.slice(6);
+//   var noBack = noFront.slice(0,-4);
+//   return noBack;
+// }
 var getDomainName = function(string) {
-  var noFront = string.slice(6);
-  var noBack = noFront.slice(0,-4);
-  return noBack;
+   return string.substring(0, email.indexOf("@"));
 }
 
 
